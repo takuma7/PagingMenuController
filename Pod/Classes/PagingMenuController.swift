@@ -463,7 +463,7 @@ public class PagingMenuController: UIViewController {
     
     private func addTapGestureHandlers() {
         menuView.menuItemViews.forEach {
-            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PagingMenuController.handleTapGesture(_:)))
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTapGesture")
             gestureRecognizer.numberOfTapsRequired = 1
             $0.addGestureRecognizer(gestureRecognizer)
         }
@@ -476,11 +476,11 @@ public class PagingMenuController: UIViewController {
         default: return
         }
         
-        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(PagingMenuController.handleSwipeGesture(_:)))
+        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture")
         leftSwipeGesture.direction = .Left
         menuView.panGestureRecognizer.requireGestureRecognizerToFail(leftSwipeGesture)
         menuView.addGestureRecognizer(leftSwipeGesture)
-        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(PagingMenuController.handleSwipeGesture(_:)))
+        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: "handleSwipeGesture")
         rightSwipeGesture.direction = .Right
         menuView.panGestureRecognizer.requireGestureRecognizerToFail(rightSwipeGesture)
         menuView.addGestureRecognizer(rightSwipeGesture)
